@@ -31,4 +31,6 @@
   (display (apply + l))
   (newline))
 
+(random-source-randomize! default-random-source)
+
 (disp-info (sort (rand-to-sum 5 1000)))
