@@ -5,7 +5,8 @@
 
 (import (scheme base)
         (scheme write)
-        (srfi 27))
+        (srfi 27)
+        (srfi 95))
 
 (define (rand-to-sum k n)
   (if (or (<= k 0)
@@ -30,4 +31,4 @@
   (display (apply + l))
   (newline))
 
-(disp-info (rand-to-sum 5 1000))
+(disp-info (sort (rand-to-sum 5 1000)))
