@@ -12,7 +12,7 @@
           (<= n 0)
           (> k n))
       (error "rand-to-sum" "Bad parameters"))
-  (let loop ((i 0)
+  (let loop ((i 1)
              (total 0)
              (out-list '()))
     (if (< i k)
@@ -22,5 +22,12 @@
                 (cons next-num out-list)))
         (cons (- n total) out-list))))
 
-(display (rand-to-sum 4 9))
-(newline)
+(define (disp-info l)
+  (display l)
+  (newline)
+  (display (length l))
+  (newline)
+  (display (apply + l))
+  (newline))
+
+(disp-info (rand-to-sum 5 1000))
