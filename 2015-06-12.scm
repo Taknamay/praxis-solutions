@@ -7,19 +7,6 @@
         (scheme write)
         (srfi 27))
 
-(define (shuffle in-vect)
-  (define sz (vector-length in-vect))
-  (define vect (vector-copy in-vect))
-  (let loop ((i 0))
-    (when (< i sz)
-          (let* ((v (vector-ref vect i))
-                 (i-nx (random-integer sz))
-                 (v-nx (vector-ref vect i-nx)))
-            (vector-set! vect i v-nx)
-            (vector-set! vect i-nx v))
-          (loop (+ i 1))))
-  vect)
-
 (define (rand-to-sum k n)
   (if (or (<= k 0)
           (<= n 0)
@@ -43,8 +30,4 @@
   (display (apply + l))
   (newline))
 
-(disp-info
- (vector->list
-  (shuffle
-   (list->vector
-    (rand-to-sum 20 1000)))))
+(disp-info (rand-to-sum 5 1000))
