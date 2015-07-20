@@ -1,4 +1,4 @@
-#!/usr/bin/env chibi-scheme
+#!/usr/bin/env gosh
 
 ;; In the dictionary, find the longest ordered word
 ;; An ordered word is one which has its letter in alphabetical order
