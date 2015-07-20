@@ -47,7 +47,5 @@
         (loop (update-wl wl next)
               (next-word)))))
 
-(display (wl-contents longest-sorted))
+(write (wl-contents longest-sorted))
 (newline)
-
-
