@@ -66,11 +66,16 @@
              (next-evens even-perms))
     (define result (combine-digits (car next-odds) (car next-evens)))
     (if (check? result)
-        result
+        ;; Return the result as a number
+        (let loop ((n 0)
+                   (in-list (append result '(0))))
+          (if (null? in-list)
+              n
+              (loop (+ (* n 10) (car in-list))
+                    (cdr in-list))))
         (if (< i 23)
             (loop (+ i 1) next-odds (cdr next-evens))
             (loop 0 (cdr next-odds) even-perms)))))
 
-(display (puzzle)) (newline)
-
-
+(display (puzzle))
+(newline)
