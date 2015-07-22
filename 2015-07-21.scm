@@ -14,7 +14,6 @@
 
 ;; (Indexed by 1)
 ;; The tenth digit is 0.
-;; The fifth digit is 5.
 ;; Even-indexed digits are even.
 ;; Odd-indexed digits are odd.
 
