@@ -14,10 +14,11 @@
 
 ;; (Indexed by 1)
 ;; The tenth digit is 0.
+;; The fifth digit is 5.
 ;; Even-indexed digits are even.
 ;; Odd-indexed digits are odd.
 
-;; With this information, we will only need 4! * 5! trials.
+;; With this information, we will only need 4! * 4! trials.
 
 (import (scheme base)
         (scheme write)
@@ -48,18 +49,18 @@
                                  (all-permutations (delete (car in-list) l)))
                             out-list)
                     (cdr in-list))))))
-  (define odd-perms (all-permutations '(1 3 5 7 9)))
+  (define odd-perms (all-permutations '(1 3 7 9)))
   (define even-perms (all-permutations '(2 4 6 8)))
-  (define (combine-digits ol el)
-    (let loop ((in-ol ol)
-               (in-el el)
-               (out-list '()))
-      (if (null? in-el)
-          (cons (car in-ol) out-list)
-          (loop (cdr in-ol)
-                (cdr in-el)
-                (cons (car in-el)
-                      (cons (car in-ol) out-list))))))
+  (define (combine-digits odds evens)
+    (list (first odds)
+          (first evens)
+          (second odds)
+          (second evens)
+          5
+          (third evens)
+          (third odds)
+          (fourth evens)
+          (fourth odds)))
   (let loop ((i 0)
              (next-odds odd-perms)
              (next-evens even-perms))
