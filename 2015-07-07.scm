@@ -2,7 +2,6 @@
 
 (import (scheme base)
         (scheme write)
-        (srfi 28)
         (srfi 113)
         (srfi 114))
 
